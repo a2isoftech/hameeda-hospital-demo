@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>حمیدہ میموریل ہسپتال فیصل آباد — آپ کی صحت، ہماری ذمہ داری</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" />
+<style>
+  :root {
+    --color-bg: #f3f8f7;
+    --color-surface: #ffffff;
+    --color-ink: #13302c;
+    --color-muted: #587370;
+    --color-border: #d9e8e5;
+    --color-brand: #0e6b5c;
+    --color-brand-dark: #094d42;
+    --color-accent: #d9534f;
+    --color-accent-bg: #e8f4f1;
+    --shadow-card: 0 8px 24px rgba(14, 107, 92, 0.08);
+    --shadow-fab: 0 10px 30px rgba(14, 107, 92, 0.4);
+    --radius: 14px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--color-bg);
+    color: var(--color-ink);
+    /* Nastaliq is how Urdu is normally read; it needs generous line height. */
+    font-family: "Noto Nastaliq Urdu", "Segoe UI", Tahoma, Arial, sans-serif;
+    line-height: 2;
+    scroll-behavior: smooth;
+  }
+
+  a { color: inherit; }
+
+  /* ---------- Header ---------- */
+  header {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brand {
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: var(--color-brand);
+  }
+
+  .brand span {
+    color: var(--color-accent);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    font-size: 14px;
+    color: var(--color-muted);
+  }
+
+  .nav-links a {
+    text-decoration: none;
+  }
+
+  .nav-links a:hover {
+    color: var(--color-brand);
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 24px 40px;
+    text-align: center;
+  }
+
+  .hero .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+    color: var(--color-accent);
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+    line-height: 2;
+    margin: 0 0 16px;
+    font-weight: 700;
+    color: var(--color-brand-dark);
+  }
+
+  .hero p {
+    max-width: 640px;
+    margin: 0 auto;
+    color: var(--color-muted);
+    font-size: 16px;
+    line-height: 2.2;
+  }
+
+  .emergency-bar {
+    background: var(--color-accent);
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    padding: 6px 16px;
+  }
+
+  .emergency-bar .num {
+    direction: ltr;
+    display: inline-block;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 700;
+  }
+
+  /* ---------- Section shared ---------- */
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+
+  .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 6px;
+    color: var(--color-brand-dark);
+  }
+
+  .section-sub {
+    color: var(--color-muted);
+    font-size: 14px;
+    margin: 0 0 28px;
+  }
+
+  /* ---------- Service cards ---------- */
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .service-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+  }
+
+  .service-card .swatch {
+    height: 110px;
+    background: linear-gradient(135deg, var(--color-accent-bg), #cfe8e2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+  }
+
+  .service-card .body {
+    padding: 18px;
+  }
+
+  .service-card h3 {
+    margin: 0 0 4px;
+    font-size: 17px;
+  }
+
+  .service-card .meta {
+    color: var(--color-muted);
+    font-size: 13px;
+    margin-bottom: 14px;
+    line-height: 2;
+  }
+
+  .ask-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    justify-content: center;
+    background: var(--color-accent-bg);
+    border: 1px solid transparent;
+    color: var(--color-brand);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease, border-color 0.15s ease;
+    font-family: inherit;
+  }
+
+  .ask-chip:hover {
+    background: var(--color-brand);
+    color: #fff;
+    border-color: var(--color-brand);
+  }
+
+  .ask-chip:active {
+    transform: scale(0.98);
+  }
+
+  /* ---------- Quick questions strip ---------- */
+  .qa-strip {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .qa-strip-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 36px 24px;
+  }
+
+  .qa-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .qa-button {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    color: var(--color-ink);
+    font-size: 13.5px;
+    padding: 12px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+    font-family: inherit;
+  }
+
+  .qa-button:hover {
+    border-color: var(--color-brand);
+    background: var(--color-accent-bg);
+  }
+
+  /* ---------- Lawyers ---------- */
+  .lawyer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .lawyer-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 22px 18px;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+  }
+
+  .lawyer-card .avatar {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: var(--color-brand);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .lawyer-card h4 {
+    margin: 0 0 4px;
+    font-size: 15px;
+  }
+
+  .lawyer-card .role {
+    color: var(--color-muted);
+    font-size: 12.5px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    text-align: center;
+    padding: 40px 24px 60px;
+    color: var(--color-muted);
+    font-size: 13px;
+  }
+
+  footer .contact-line {
+    margin-top: 8px;
+    direction: ltr;
+    display: inline-block;
+  }
+
+  /* ---------- Chat launcher (FAB) ---------- */
+  #chat-fab {
+    position: fixed;
+    left: 24px;
+    bottom: 24px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--color-brand);
+    box-shadow: var(--shadow-fab);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  #chat-fab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(14, 107, 92, 0.5);
+  }
+
+  #chat-fab svg {
+    width: 26px;
+    height: 26px;
+    fill: #fff;
+  }
+
+  #chat-fab .fab-badge {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #d9534f;
+    border: 2px solid var(--color-bg);
+  }
+
+  /* ---------- Chat panel ---------- */
+  #chat-panel {
+    position: fixed;
+    left: 24px;
+    bottom: 96px;
+    width: 400px;
+    max-width: calc(100vw - 32px);
+    height: 600px;
+    max-height: calc(100vh - 140px);
+    background: var(--color-surface);
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+  }
+
+  #chat-panel.open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+  #chat-panel-header {
+    background: var(--color-brand);
+    color: #fff;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  #chat-panel-header .title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #chat-panel-header .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #7be08a;
+  }
+
+  #chat-panel-close {
+    background: rgba(255, 255, 255, 0.18);
+    border: none;
+    color: #fff;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #chat-panel-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  #chat-panel iframe {
+    flex: 1;
+    width: 100%;
+    border: 0;
+  }
+
+  @media (max-width: 480px) {
+    #chat-panel {
+      left: 16px;
+      right: 16px;
+      width: auto;
+      bottom: 90px;
+    }
+    #chat-fab {
+      left: 16px;
+      bottom: 16px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="emergency-bar">اپائنٹمنٹ، اوقات یا ٹیسٹ رپورٹس کے بارے میں سوال؟ ہمارے ورچوئل اسسٹنٹ سے ابھی پوچھیں</div>
+
+<header>
+  <div class="nav">
+    <div class="brand">حمیدہ میموریل<span> ہسپتال</span></div>
+    <div class="nav-links">
+      <a href="#departments">شعبہ جات</a>
+      <a href="#why">ورچوئل اسسٹنٹ</a>
+      <a href="#contact">رابطہ</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">صدر بازار، جھمرہ روڈ، فیصل آباد</div>
+  <h1>آپ کی صحت، ہماری ذمہ داری</h1>
+  <p>
+    ماہر ڈاکٹروں، لیبارٹری اور ایمرجنسی سہولیات کے ساتھ ہم آپ کے پورے خاندان کی دیکھ بھال کرتے ہیں۔
+    اپائنٹمنٹ، ڈاکٹروں کے اوقات، ٹیسٹ رپورٹس یا کسی بھی سوال کے لیے ہمارے ورچوئل اسسٹنٹ سے اردو، رومن اردو
+    یا انگریزی میں فوراً بات کریں — لکھ کر یا بول کر۔
+  </p>
+</section>
+
+<section id="departments">
+  <div class="section-title">ہمارے شعبہ جات</div>
+  <div class="section-sub">"اس بارے میں پوچھیں" دبائیں، تیار سوال سیدھا ورچوئل اسسٹنٹ کو چلا جائے گا۔</div>
+
+  <div class="service-grid">
+
+    <div class="service-card">
+      <div class="swatch">❤️</div>
+      <div class="body">
+        <h3>امراضِ قلب (کارڈیالوجی)</h3>
+        <div class="meta">ای سی جی، ایکو، اینجیوگرافی اور دل کے ماہرین سے مشورہ</div>
+        <button class="ask-chip" data-question="دل کے ڈاکٹر سے ملنے کے لیے اپائنٹمنٹ کیسے لی جا سکتی ہے اور فیس کتنی ہے؟">
+          💬 اس بارے میں پوچھیں
+        </button>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="swatch">👶</div>
+      <div class="body">
+        <h3>زچہ و بچہ</h3>
+        <div class="meta">گائنی، زچگی، نومولود کی نگہداشت اور بچوں کے ماہرین</div>
+        <button class="ask-chip" data-question="حمل کے دوران باقاعدہ چیک اپ کے لیے آپ کے ہاں کون سی سہولیات موجود ہیں؟">
+          💬 اس بارے میں پوچھیں
+        </button>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="swatch">🧪</div>
+      <div class="body">
+        <h3>لیبارٹری اور ٹیسٹ</h3>
+        <div class="meta">خون کے ٹیسٹ، الٹراساؤنڈ، ایکسرے — رپورٹس آن لائن</div>
+        <button class="ask-chip" data-question="خون کے ٹیسٹ کی رپورٹ کتنے وقت میں ملتی ہے اور کیا آن لائن دیکھی جا سکتی ہے؟">
+          💬 اس بارے میں پوچھیں
+        </button>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="swatch">🚑</div>
+      <div class="body">
+        <h3>ایمرجنسی</h3>
+        <div class="meta">ایمرجنسی علاج، ایمبولینس اور فوری طبی امداد</div>
+        <button class="ask-chip" data-question="ایمرجنسی میں ایمبولینس کیسے منگوائی جائے اور کیا ایمرجنسی ہر وقت کھلی رہتی ہے؟">
+          💬 اس بارے میں پوچھیں
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="qa-strip" id="faq">
+  <div class="qa-strip-inner">
+    <div class="section-title">عام سوالات</div>
+    <div class="section-sub">کوئی بھی سوال دبائیں، وہ ورچوئل اسسٹنٹ کو بھیج دیا جائے گا اور فوراً جواب ملے گا۔</div>
+    <div class="qa-buttons">
+      <button class="qa-button" data-question="او پی ڈی کے اوقات کیا ہیں اور کیا اتوار کو بھی کھلی ہوتی ہے؟">او پی ڈی کے اوقات کیا ہیں؟</button>
+      <button class="qa-button" data-question="کیا آپ کے ہاں ہیلتھ انشورنس اور صحت کارڈ قبول کیا جاتا ہے؟">کیا صحت کارڈ قبول ہے؟</button>
+      <button class="qa-button" data-question="بچوں کے ڈاکٹر سے آج شام کے لیے اپائنٹمنٹ مل سکتی ہے؟">بچوں کے ڈاکٹر کی اپائنٹمنٹ</button>
+      <button class="qa-button" data-question="Kya main apni test report WhatsApp par mangwa sakta hoon?">Test report WhatsApp par? (رومن اردو)</button>
+      <button class="qa-button" data-question="ہسپتال تک کیسے پہنچا جائے اور کیا پارکنگ کی سہولت موجود ہے؟">ہسپتال کا پتہ اور پارکنگ</button>
+    </div>
+  </div>
+</div>
+
+<section id="why">
+  <div class="section-title">ورچوئل اسسٹنٹ کیا کر سکتا ہے</div>
+  <div class="section-sub">مریض اور ان کے اہلِ خانہ کسی بھی وقت، اپنی زبان میں مدد حاصل کر سکتے ہیں۔</div>
+
+  <div class="lawyer-grid">
+    <div class="lawyer-card">
+      <div class="avatar">📅</div>
+      <h4>اپائنٹمنٹ کی رہنمائی</h4>
+      <div class="role">کس ڈاکٹر سے اور کب ملا جائے</div>
+    </div>
+    <div class="lawyer-card">
+      <div class="avatar">🕘</div>
+      <h4>او پی ڈی کے اوقات</h4>
+      <div class="role">شعبہ وار اوقات اور چھٹیاں</div>
+    </div>
+    <div class="lawyer-card">
+      <div class="avatar">🧾</div>
+      <h4>ٹیسٹ اور رپورٹس</h4>
+      <div class="role">تیاری، وقت اور رپورٹ کی وصولی</div>
+    </div>
+    <div class="lawyer-card">
+      <div class="avatar">🎙️</div>
+      <h4>بول کر پوچھیں</h4>
+      <div class="role">اردو، رومن اردو یا انگریزی میں</div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  حمیدہ میموریل ہسپتال، صدر بازار، جھمرہ روڈ، فیصل آباد &middot; ڈیمو صفحہ
+</footer>
+
+<!-- ---------- Chat launcher + panel ---------- -->
+<button id="chat-fab" aria-label="چیٹ کھولیں" aria-expanded="false" aria-controls="chat-panel">
+  <span class="fab-badge"></span>
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 2C6.48 2 2 5.94 2 10.8c0 2.68 1.42 5.08 3.66 6.7-.15 1.24-.66 2.62-1.5 3.86 1.9-.29 3.55-1.05 4.86-1.98 1.5.5 2.86.72 2.98.72 5.52 0 10-3.94 10-8.8C22 5.94 17.52 2 12 2z"/>
+  </svg>
+</button>
+
+<div id="chat-panel">
+  <div id="chat-panel-header">
+    <div class="title-group">
+      <span class="dot"></span>
+      <span>حمیدہ میموریل ہسپتال ورچوئل اسسٹنٹ</span>
+    </div>
+    <button id="chat-panel-close" aria-label="چیٹ بند کریں">✕</button>
+  </div>
+  <iframe id="chat-iframe" allow="microphone; autoplay" src="https://chatbotsuite-quick.eastus.azurecontainer.io/embed/a0896269-bbe9-4a12-9e05-78c607f63ce8" width="400" height="600" style="border:0;" title="Hameeda Memorial Hospital chat"></iframe>
+</div>
+
+<script>
+  const fab = document.getElementById('chat-fab');
+  const panel = document.getElementById('chat-panel');
+  const closeBtn = document.getElementById('chat-panel-close');
+  const iframe = document.getElementById('chat-iframe');
+
+  function openChat() {
+    panel.classList.add('open');
+    fab.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeChat() {
+    panel.classList.remove('open');
+    fab.setAttribute('aria-expanded', 'false');
+  }
+
+  fab.addEventListener('click', () => {
+    panel.classList.contains('open') ? closeChat() : openChat();
+  });
+  closeBtn.addEventListener('click', closeChat);
+
+  // Sends a question into the embedded chat widget via postMessage, since the iframe
+  // is on a different origin and its DOM can't be reached directly from this page.
+  // The widget signals readiness with a 'chatbot-embed-ready' message once its own
+  // listener is registered, so we wait for that instead of guessing with a timeout.
+  let chatReady = false;
+  let pendingQuestion = null;
+
+  function sendQuestion(text) {
+    iframe.contentWindow.postMessage({ type: 'chatbot-embed-prefill', text, autoSend: true }, '*');
+  }
+
+  window.addEventListener('message', (event) => {
+    if (event.data && event.data.type === 'chatbot-embed-ready') {
+      chatReady = true;
+      if (pendingQuestion) {
+        sendQuestion(pendingQuestion);
+        pendingQuestion = null;
+      }
+    }
+  });
+
+  function askQuestion(text) {
+    openChat();
+    if (chatReady) {
+      sendQuestion(text);
+    } else {
+      pendingQuestion = text;
+    }
+  }
+
+  document.querySelectorAll('[data-question]').forEach((el) => {
+    el.addEventListener('click', () => askQuestion(el.getAttribute('data-question')));
+  });
+</script>
+
+</body>
+</html>
